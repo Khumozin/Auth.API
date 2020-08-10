@@ -16,5 +16,7 @@ namespace Auth.API.Dtos
 
         [Required]
         public int Role { get; set; }
+        public string DateCreated { get; set; }
+        public string DateUpdated { get; set; }
     }
 }

@@ -22,5 +22,8 @@ namespace Auth.API.Models
 
         [Required]
         public byte[] PassworSalt { get; set; }
+
+        public string DateCreated { get; set; }
+        public string DateUpdated { get; set; }
     }
 }
