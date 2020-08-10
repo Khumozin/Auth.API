@@ -71,7 +71,7 @@ namespace Auth.API.Controllers
             return NoContent();
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task<ActionResult> DeleteUserAsync(Guid id)
         {
             var userFromRepo = await _repository.GetUserByID(id);
