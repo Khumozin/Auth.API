@@ -6,7 +6,10 @@ namespace Auth.API.Dtos
     public class UserUpdateDto
     {
         [Required]
-        public string Username { get; set; }
+        public string Name { get; set; }
+
+        [Required]
+        public string Surname { get; set; }
 
         [Required]
         public string Email { get; set; }

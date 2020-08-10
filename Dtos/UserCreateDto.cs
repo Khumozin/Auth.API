@@ -9,7 +9,10 @@ namespace Auth.API.Dtos
         public Guid ID { get; set; }
 
         [Required]
-        public string Username { get; set; }
+        public string Name { get; set; }
+
+        [Required]
+        public string Surname { get; set; }
 
         [Required]
         public string Email { get; set; }
@@ -18,10 +21,7 @@ namespace Auth.API.Dtos
         public int Role { get; set; }
 
         [Required]
-        public byte[] PasswordHash { get; set; }
-
-        [Required]
-        public byte[] PassworSalt { get; set; }
+        public string Password { get; set; }
         public string DateCreated { get; set; }
         public string DateUpdated { get; set; }
     }
