@@ -1,6 +1,7 @@
 using System.Threading.Tasks;
 using Auth.API.Data;
 using Auth.API.Dtos;
+using Auth.API.Helpers;
 using Auth.API.Models;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
@@ -13,11 +14,13 @@ namespace Auth.API.Controllers
     {
         private readonly IAuth _repository;
         private readonly IMapper _mapper;
+        private readonly IJwtHelper _jwtHelper;
 
-        public AuthController(IAuth repo, IMapper mapper)
+        public AuthController(IAuth repo, IMapper mapper, IJwtHelper jwtHelper)
         {
             _repository = repo;
             _mapper = mapper;
+            _jwtHelper = jwtHelper;
         }
 
         // POST api/auth/register/
@@ -35,5 +38,19 @@ namespace Auth.API.Controllers
         }
 
         // POST api/auth/login/
+        [HttpPost("login")]
+        public async Task<ActionResult> LoginAsync(UserLoginDto user)
+        {
+            var userFromRepo = await _repository.Login(user.Email, user.Password);
+
+            if (userFromRepo == null)
+            {
+                return Unauthorized();
+            }
+
+            var token = _jwtHelper.GenerateToken(userFromRepo);
+
+            return Ok(new { AuthToken = token });
+        }
     }
 }

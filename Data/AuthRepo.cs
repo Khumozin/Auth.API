@@ -17,7 +17,7 @@ namespace Auth.API.Data
         }
         public async Task<User> Login(string email, string password)
         {
-            var user = await _context.User.FirstOrDefaultAsync(u => u.Email == email);
+            var user = await _context.User.FirstOrDefaultAsync(u => u.Email == email.ToLower());
 
             if (user == null)
             {
@@ -59,7 +59,7 @@ namespace Auth.API.Data
 
         public async Task<bool> UserExists(string email)
         {
-            if (await _context.User.AnyAsync(u => u.Email == email))
+            if (await _context.User.AnyAsync(u => u.Email == email.ToLower()))
             {
                 return true;
             }
@@ -68,7 +68,7 @@ namespace Auth.API.Data
 
         private bool VerifyPasswordHash(string password, byte[] passwordHash, byte[] passwordSalt)
         {
-            using (var hmac = new HMACSHA512(passwordSalt))
+            using (var hmac = new System.Security.Cryptography.HMACSHA512(passwordSalt))
             {
                 var computedHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
                 for (int i = 0; i < computedHash.Length; i++)
@@ -82,10 +82,10 @@ namespace Auth.API.Data
 
         private void createPasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
         {
-            using (var hmac = new HMACSHA512())
+            using (var hmac = new System.Security.Cryptography.HMACSHA512())
             {
-                passwordHash = hmac.Key;
-                passwordSalt = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
+                passwordSalt = hmac.Key;
+                passwordHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
             }
         }
     }

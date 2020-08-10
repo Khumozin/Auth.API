@@ -54,3 +54,11 @@ C:\Develop\.NetCore\Auth.API\obj\Debug\netcoreapp3.1\staticwebassets\Auth.API.St
 C:\Develop\.NetCore\Auth.API\obj\Debug\netcoreapp3.1\Auth.API.dll
 C:\Develop\.NetCore\Auth.API\obj\Debug\netcoreapp3.1\Auth.API.pdb
 C:\Develop\.NetCore\Auth.API\obj\Debug\netcoreapp3.1\Auth.API.genruntimeconfig.cache
+C:\Develop\.NetCore\Auth.API\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Develop\.NetCore\Auth.API\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Develop\.NetCore\Auth.API\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+C:\Develop\.NetCore\Auth.API\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+C:\Develop\.NetCore\Auth.API\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Develop\.NetCore\Auth.API\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+C:\Develop\.NetCore\Auth.API\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Develop\.NetCore\Auth.API\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
