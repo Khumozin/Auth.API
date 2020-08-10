@@ -5,10 +5,12 @@ using Auth.API.Data;
 using Auth.API.Dtos;
 using Auth.API.Models;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Auth.API.Controllers
 {
+
     [Route("api/[controller]")]
     [ApiController]
     public class UsersController : ControllerBase
@@ -27,8 +29,12 @@ namespace Auth.API.Controllers
         public async Task<ActionResult<IEnumerable<UserReadDto>>> GetAllUsersAsync()
         {
             var usersFromRepo = await _repository.GetAllUsers();
+            if (usersFromRepo == null)
+            {
+                return NotFound();
+            }
 
-            return Ok(_mapper.Map<UserReadDto>(usersFromRepo));
+            return Ok(_mapper.Map<IEnumerable<UserReadDto>>(usersFromRepo));
         }
 
         // GET api/users/{id}
