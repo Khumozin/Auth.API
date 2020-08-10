@@ -36,6 +36,7 @@ namespace Auth.API
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
             services.AddScoped<IUser, UserRepo>();
+            services.AddScoped<IAuth, AuthRepo>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

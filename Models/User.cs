@@ -9,7 +9,10 @@ namespace Auth.API.Models
         public Guid ID { get; set; }
 
         [Required]
-        public string Username { get; set; }
+        public string Name { get; set; }
+
+        [Required]
+        public string Surname { get; set; }
 
         [Required]
         public string Email { get; set; }
