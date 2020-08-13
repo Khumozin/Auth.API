@@ -18,10 +18,7 @@ namespace Auth.API.Dtos
         public int Role { get; set; }
 
         [Required]
-        public byte[] PasswordHash { get; set; }
-
-        [Required]
-        public byte[] PassworSalt { get; set; }
+        public string Password { get; set; }
         public string DateCreated { get; set; }
         public string DateUpdated { get; set; }
     }

@@ -9,5 +9,7 @@ namespace Auth.API.Data
         Task<User> Register(UserCreateDto user, string password);
         Task<User> Login(string email, string password);
         Task<bool> UserExists(string email);
+
+        Password UpdateUserPassword(string password);
     }
 }

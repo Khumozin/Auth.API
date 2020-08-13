@@ -17,11 +17,13 @@ namespace Auth.API.Controllers
     {
         private readonly IUser _repository;
         private readonly IMapper _mapper;
+        private readonly IAuth _authRepo;
 
-        public UsersController(IUser repository, IMapper mapper)
+        public UsersController(IUser repository, IMapper mapper, IAuth authRepo)
         {
             _repository = repository;
             _mapper = mapper;
+            _authRepo = authRepo;
         }
 
         // GET api/users
@@ -60,6 +62,10 @@ namespace Auth.API.Controllers
                 return NotFound();
             }
 
+            var password = _authRepo.UpdateUserPassword(userUpdateDto.Password);
+            userFromRepo.PasswordHash = password.PasswordHash;
+            userFromRepo.PassworSalt = password.PasswordSalt;
+
             _mapper.Map(userUpdateDto, userFromRepo);
 
             _repository.UpdateUser(userFromRepo);
@@ -71,7 +77,7 @@ namespace Auth.API.Controllers
             return NoContent();
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task<ActionResult> DeleteUserAsync(Guid id)
         {
             var userFromRepo = await _repository.GetUserByID(id);
