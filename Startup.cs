@@ -36,6 +36,7 @@ namespace Auth.API
             services.AddDbContext<AuthContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("AuthConnection")));
             services.AddCors();
             services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson();
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 

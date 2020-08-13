@@ -88,5 +88,13 @@ namespace Auth.API.Data
                 passwordHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
             }
         }
+
+        public Password UpdateUserPassword(string password)
+        {
+            byte[] passwordHash, passwordSalt;
+            createPasswordHash(password, out passwordHash, out passwordSalt);
+
+            return new Password { PasswordHash = passwordHash, PasswordSalt = passwordSalt };
+        }
     }
 }

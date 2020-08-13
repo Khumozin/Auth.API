@@ -62,3 +62,6 @@ C:\Develop\.NetCore\Auth.API\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Pro
 C:\Develop\.NetCore\Auth.API\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
 C:\Develop\.NetCore\Auth.API\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 C:\Develop\.NetCore\Auth.API\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+C:\Develop\.NetCore\Auth.API\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+C:\Develop\.NetCore\Auth.API\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Develop\.NetCore\Auth.API\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
