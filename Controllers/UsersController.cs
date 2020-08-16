@@ -65,6 +65,7 @@ namespace Auth.API.Controllers
             var password = _authRepo.UpdateUserPassword(userUpdateDto.Password);
             userFromRepo.PasswordHash = password.PasswordHash;
             userFromRepo.PassworSalt = password.PasswordSalt;
+            userUpdateDto.DateUpdated = DateTime.Now.ToString();
 
             _mapper.Map(userUpdateDto, userFromRepo);
 

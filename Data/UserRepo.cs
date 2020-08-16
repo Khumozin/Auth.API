@@ -44,7 +44,7 @@ namespace Auth.API.Data
 
         public async Task<User> GetUserByID(Guid id)
         {
-            return await _context.User.FirstOrDefaultAsync();
+            return await _context.User.FirstOrDefaultAsync(u => u.ID == id);
         }
 
         public async Task<bool> SaveChanges()
